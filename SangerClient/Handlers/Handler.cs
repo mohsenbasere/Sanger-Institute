@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Framework.Commons;
 using Framework.Parser.FASTQs;
+using Framework.Utilities;
 
 namespace SangerClient.Handlers
 {
@@ -16,10 +17,19 @@ namespace SangerClient.Handlers
 
         private static void GetFASTQSequenceCount(string filePath)
         {
+            var fileInfo = new FileInfo(filePath);
             var list = new List<FASTQSequence>();
             IParser<FASTQSequence> parser = new FASTQParser();
             using var fs = File.OpenRead(filePath);
-            list = parser.Parse(fs).ToList();
+            if (fileInfo.Extension.ToLower() == ".gz")
+            {
+                using var gz = Helper.GZipReader(fs);
+                list.AddRange(parser.Parse(gz));
+            }
+            else
+            {
+                list = parser.Parse(fs).ToList();
+            }
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Sequence Count: {list.Count}");
         }
