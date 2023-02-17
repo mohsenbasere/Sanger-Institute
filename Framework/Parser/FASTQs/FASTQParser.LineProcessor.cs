@@ -11,7 +11,7 @@ namespace Framework.Parser.FASTQs
         {
             var line = ReadNextLine(reader);
             GuardAgainstLineOneIsInvalid(line);
-            var id = line.Split(' ');
+            var id = line?.Split(' ');
             return id.FirstOrDefault();
         }
 
@@ -27,7 +27,7 @@ namespace Framework.Parser.FASTQs
         {
             var line = ReadNextLine(reader);
             GuardAgainstCheckPlusInLineThree(id, line);
-            var qualityId = line.Substring(1).Trim();
+            var qualityId = line?.Substring(1).Trim();
             GuardAgainstMatchScoresHeaderWithSequenceHeader(id, qualityId);
         }
 

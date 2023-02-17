@@ -31,7 +31,7 @@ namespace Framework.Parser.FASTQs
             }
         }
 
-        private static void GuardAgainstMatchScoresHeaderWithSequenceHeader(string id, string qualityId)
+        private static void GuardAgainstMatchScoresHeaderWithSequenceHeader(string id, string? qualityId)
         {
             if (!string.IsNullOrEmpty(qualityId) && !id.Equals(qualityId))
             {
