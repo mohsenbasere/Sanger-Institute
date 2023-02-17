@@ -12,7 +12,7 @@ sudo apt install dotnet-sdk-3.1
 ## Step 4 – (Optional) Check .NET Core Version
 dotnet --version
 ## Step 5 - Dotnet Publish Project
-dotnet publish --output Sanger_publish
+dotnet publish --output ../Sanger_Publish
 ## Step 6 - Run Project 
 ./SangerClient -h 
 ## Step 7 - Sample Of Run Project
