@@ -6,9 +6,9 @@ Sanger Institute Test
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb 
 sudo dpkg -i packages-microsoft-prod.deb 
 ## Step 2 – Installing Dotnet Core SDK
-sudo apt update 
-sudo apt install apt-transport-https 
-sudo apt install dotnet-sdk-3.1 
+sudo apt update  
+sudo apt install apt-transport-https  
+sudo apt install dotnet-sdk-3.1  
 ## Step 4 – (Optional) Check .NET Core Version
 dotnet --version
 ## Step 5 - Dotnet Publish Project
